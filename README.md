@@ -74,5 +74,5 @@ grunt.initConfig({
 And run.
 
 ```
-grunt build
+grunt cordova:build
 ```
