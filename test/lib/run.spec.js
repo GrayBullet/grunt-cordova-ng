@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var command = require('../../tasks/lib/run.js');
+  var command = require('../../lib/run.js');
   var asyncStub = 'ASYNC';
 
   describe('run', function() {

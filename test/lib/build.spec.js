@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var command = require('../../tasks/lib/build.js');
+  var command = require('../../lib/build.js');
   var asyncStub = 'ASYNC';
 
   describe('build', function() {

@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var util = require('../../tasks/lib/util.js');
+  var util = require('../../lib/util.js');
 
   describe('util', function() {
     describe('convertCordovaOptions', function() {

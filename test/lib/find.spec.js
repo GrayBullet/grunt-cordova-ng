@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var find = require('../../tasks/lib/find.js');
+  var find = require('../../lib/find.js');
 
   describe('find', function() {
     [ 'build', 'run', 'emulate' ].forEach(function(name) {

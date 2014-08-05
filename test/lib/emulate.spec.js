@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var command = require('../../tasks/lib/emulate.js');
+  var command = require('../../lib/emulate.js');
   var asyncStub = 'ASYNC';
 
   describe('emulate', function() {
