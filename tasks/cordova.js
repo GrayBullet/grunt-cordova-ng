@@ -38,7 +38,7 @@ module.exports = function(grunt) {
     // grunt.initConfig({ debugOptions: { build: 'debug' }});
     options = util.mergeOptions(options, build);
 
-    grunt.log.writeln(JSON.stringify(options));
+    grunt.log.debug(JSON.stringify(options));
 
     find(command).invoke(cordova, options, this.async());
   });
