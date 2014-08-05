@@ -11,7 +11,7 @@
     "grunt"
   ],
   "author": "Tomo Masakura",
-  "license": "ISC",
+  "license": "MIT",
   "peerDependencies": {
     "cordova": ">=3.0.0"
   },
