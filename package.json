@@ -13,7 +13,8 @@
   "author": "Tomo Masakura",
   "license": "MIT",
   "peerDependencies": {
-    "cordova": ">=3.0.0"
+    "cordova": ">=3.0.0",
+    "grunt": ">=0.4.0"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
