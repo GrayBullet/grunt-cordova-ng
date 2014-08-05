@@ -15,8 +15,4 @@ module.exports = function(grunt) {
 
     find(command).invoke(cordova, options, this.async());
   });
-
-  grunt.registerTask('cordova-build', 'Run cordova build command.', [ 'cordova:build' ]);
-  grunt.registerTask('cordova-emulate', 'Run cordova emulate command.', [ 'cordova:emulate' ]);
-  grunt.registerTask('cordova-run', 'Run cordova run command.', [ 'cordova:run' ]);
 };
