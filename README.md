@@ -66,7 +66,7 @@ In this example, running `cordova build android --release`.
 grunt.initConfig({
   options: {
     platforms: 'android',
-    build: release
+    build: 'release'
   }
 });
 ```
