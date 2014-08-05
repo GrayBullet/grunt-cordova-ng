@@ -200,5 +200,63 @@
         });
       });
     });
+
+    describe('mergeOptions', function() {
+      it('Use default user options.', function() {
+        var result = util.mergeOptions({ build: 'default' }, undefined);
+
+        expect(result.build).toEqual('default');
+      });
+
+      it('Use override debug options.', function() {
+        var result = util.mergeOptions({ build: 'default' }, 'debug');
+
+        expect(result.build).toEqual('debug');
+      });
+
+      it('Use custom user options by build type.', function() {
+        var options = {
+          debugOptions: {
+            build: 'custom',
+          }
+        };
+        var result = util.mergeOptions(options, 'debug');
+
+        expect(result.build).toEqual('custom');
+      });
+
+      it('Override debug options.', function() {
+        var result = util.mergeOptions({}, 'debug');
+
+        expect(result).toEqual({ build: 'debug', device: 'emulator' });
+      });
+
+      it('Override release options.', function() {
+        var result = util.mergeOptions({}, 'release');
+
+        expect(result).toEqual({ build: 'release', device: 'device' });
+      });
+
+      it('Mix options.', function() {
+        var options = {
+          build: 'default build',
+          option1: 'default option1',
+          option2: 'default option2',
+          debugOptions: {
+            device: 'debug device',
+            option2: 'debug option2'
+          }
+        };
+        var result = util.mergeOptions(options, 'debug');
+        delete result.debugOptions;
+
+        expect(result).toEqual({
+          build: 'debug',
+          device: 'debug device',
+          option1: 'default option1',
+          option2: 'debug option2'
+        });
+      });
+    });
   });
 })();

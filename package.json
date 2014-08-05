@@ -23,5 +23,8 @@
   "files": [
     "lib",
     "tasks"
-  ]
+  ],
+  "dependencies": {
+    "underscore": "^1.6.0"
+  }
 }

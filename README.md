@@ -56,9 +56,23 @@ Default: empty string
 Run or emulate target id. Use `--target=` cordova option.
 
 
+#### debugOptions
+Type: 'Object'
+Default: not defined
+
+Debug build's options.
+
+
+#### releaseOptions
+Type: 'Object'
+Default: not defined
+
+Release build's options.
+
+
 ## Using Example
 
-### Release build
+### Build options
 In this example, running `cordova build android --release`.
 
 ```
@@ -75,4 +89,41 @@ And run.
 
 ```
 grunt cordova:build
+```
+
+
+### Release or debug build
+To the release build. (Run `cordova build --release --device`.)
+
+```
+grunt cordova:build:release
+```
+
+To the debug build. (Run `cordova build --debug --emulator`.)
+
+```
+grunt cordova:build:debug
+```
+
+Can use in any other command.
+
+```
+grunt cordova:emulate:debug
+```
+
+To change release or debug build options.
+
+```javascript
+// Project configuration.
+grunt.initConfig({
+  options: { ... },
+  releaseOptions: {
+    build: 'release',
+    device: 'device'
+  },
+  debugOptions: {
+    build: 'debug',
+    device: 'emulator'
+  },
+});
 ```
