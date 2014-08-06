@@ -23,6 +23,8 @@ _Run this task with the `grunt cordova` command._
 
 Task targets, files and options may be specified according to the Grunt [Configuring tasks](http://gruntjs.com/configuring-tasks) guide.
 
+| Task            | Action                         |
+| --------------- | ------------------------------ |
 | cordova:build   | Run `cordova build` command.   |
 | cordova:emulate | Run `cordova emulate` command. |
 | cordova:run     | Run `cordova run` command.     |
