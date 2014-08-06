@@ -29,13 +29,16 @@ Task targets, files and options may be specified according to the Grunt [Configu
 | cordova:emulate | Run `cordova emulate` command. |
 | cordova:run     | Run `cordova run` command.     |
 
+
 ### Options
+
 
 #### platforms
 Type: `Array` 'String'
 Default: empty array
 
 Building with cordova platforms.
+
 
 #### build
 Type: `debug` `release`
@@ -73,6 +76,7 @@ Release build's options.
 
 
 ## Using Example
+
 
 ### Build options
 In this example, running `cordova build android --release`.
