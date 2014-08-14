@@ -84,9 +84,11 @@ In this example, running `cordova build android --release`.
 ```
 // Project configuration.
 grunt.initConfig({
-  options: {
-    platforms: 'android',
-    build: 'release'
+  cordova: {
+    options: {
+      platforms: 'android',
+        build: 'release'
+    }
   }
 });
 ```
@@ -122,14 +124,16 @@ To change release or debug build options.
 ```javascript
 // Project configuration.
 grunt.initConfig({
-  options: { ... },
-  releaseOptions: {
-    build: 'release',
-    device: 'device'
-  },
-  debugOptions: {
-    build: 'debug',
-    device: 'emulator'
-  },
+  cordova: {
+    options: { ... },
+    releaseOptions: {
+      build: 'release',
+      device: 'device'
+    },
+    debugOptions: {
+      build: 'debug',
+      device: 'emulator'
+    }
+  }
 });
 ```

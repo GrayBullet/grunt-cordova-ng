@@ -29,13 +29,13 @@ module.exports = function(grunt) {
     // Mix options.
     //
     // 1. Default user options.
-    // grunt.initConfig({ build: 'debug', ... });
+    // grunt.initConfig({build: 'debug', ...});
     //
     // 2. Override build type options.
     // overrideOptions['debug']
     //
     // 3. Custom config by build options.
-    // grunt.initConfig({ debugOptions: { build: 'debug' }});
+    // grunt.initConfig(cordova: {debugOptions: {build: 'debug'}});
     options = util.mergeOptions(options, build);
 
     grunt.log.debug(JSON.stringify(options));
