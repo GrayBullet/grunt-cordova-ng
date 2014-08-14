@@ -4,6 +4,20 @@
   var util = require('../../lib/util.js');
 
   describe('util', function() {
+    var grunt = {
+      options: {},
+      option: function(name) {
+        return this.options[name];
+      },
+      initialize: function() {
+        this.options = {};
+      }
+    };
+
+    beforeEach(function() {
+      grunt.initialize();
+    });
+
     describe('convertCordovaOptions', function() {
       it('Empty options.', function() {
         var result = util.convertCordovaOptions({});
@@ -238,7 +252,7 @@
       });
 
       it('Environment options.', function() {
-        var result = util.mergeOptions({}, 'release', {
+        var result = util.mergeOptions({}, 'release', grunt, {
           GRUNT_CORDOVA_NG_PLATFORMS: 'ios'
         });
 
@@ -246,6 +260,23 @@
           platforms: ['ios'],
           build: 'release',
           device: 'device'
+        });
+      });
+
+      it('Grunt argument options.', function() {
+        grunt.options = {
+          'cordova-build': 'build:grunt',
+          'cordova-device': 'device:grunt'
+        };
+        var result = util.mergeOptions({}, 'debug', grunt, {
+          GRUNT_CORDOVA_NG_BUILD: 'build:environment',
+          GRUNT_CORDOVA_NG_TARGET: 'target:environment'
+        });
+
+        expect(result).toEqual({
+          build: 'build:grunt',
+          device: 'device:grunt',
+          target: 'target:environment'
         });
       });
 
@@ -376,13 +407,6 @@
     });
 
     describe('getGruntArgumentsOptions', function() {
-      var grunt = {
-        options: {},
-        option: function(name) {
-          return this.options[name];
-        }
-      };
-
       it('No argument options.', function() {
         grunt.options = {};
         var result = util.getGruntArgumentsOptions(grunt);
