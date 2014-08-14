@@ -75,6 +75,24 @@ Default: not defined
 Release build's options.
 
 
+### Environment options
+It is possible to override the set in the environment variables.
+
+```
+# cordova emulate ios --target=iPad
+export GRUNT_CORDOVA_NG_PLATFORMS=ios
+export GRUNT_CORDOVA_NG_TARGET=iPad
+grunt cordova:emulate
+```
+
+| Environment Name           | Value                                     |
+| -------------------------- | ----------------------------------------- |
+| GRUNT_CORDOVA_NG_PLATFORMS | `ios,android` (Comma separated platforms) |
+| GRUNT_CORDOVA_NG_BUILD     | `debug` or `releaase`                     |
+| GRUNT_CORDOVA_NG_DEVICE    | `device` or `emulator`                    |
+| GRUNT_CORDOVA_NG_TARGET    | `iPad` (Cordova Target)                   |
+
+
 ## Using Example
 
 
