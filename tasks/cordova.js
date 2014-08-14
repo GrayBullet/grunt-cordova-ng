@@ -39,13 +39,10 @@ module.exports = function(grunt) {
     //
     // 4. Envrinoment variable config.
     // export GRUNT_CORDOVA_NG_BUILD=debug
-    var envOptions = util.getEnvironmentOptions();
-    options = require('underscore').extend({}, options, envOptions);
+    var newOptions = util.mergeOptions(options, build);
 
-    options = util.mergeOptions(options, build);
+    grunt.log.debug(JSON.stringify(newOptions));
 
-    grunt.log.debug(JSON.stringify(options));
-
-    find(command).invoke(cordova, options, this.async());
+    find(command).invoke(cordova, newOptions, this.async());
   });
 };

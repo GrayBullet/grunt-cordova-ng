@@ -237,6 +237,18 @@
         expect(result).toEqual({ build: 'release', device: 'device' });
       });
 
+      it('Environment options.', function() {
+        var result = util.mergeOptions({}, 'release', {
+          GRUNT_CORDOVA_NG_PLATFORMS: 'ios'
+        });
+
+        expect(result).toEqual({
+          platforms: ['ios'],
+          build: 'release',
+          device: 'device'
+        });
+      });
+
       it('Mix options.', function() {
         var options = {
           build: 'default build',
