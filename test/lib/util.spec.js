@@ -28,19 +28,19 @@
         });
       });
 
-      [ 'debug', 'release' ].forEach(function(build) {
+      ['debug', 'release'].forEach(function(build) {
         it('Build type is "' + build + '".', function() {
-          var result = util.convertCordovaOptions({ build: build });
+          var result = util.convertCordovaOptions({build: build});
 
           expect(result).toEqual({
             platforms: [],
-            options: [ '--' + build ]
+            options: ['--' + build]
           });
         });
       });
 
       it('Build type is empty.', function() {
-        var result = util.convertCordovaOptions({ build: '' });
+        var result = util.convertCordovaOptions({build: ''});
 
         expect(result).toEqual({
           platforms: [],
@@ -49,7 +49,7 @@
       });
 
       it('Build type is null.', function() {
-        var result = util.convertCordovaOptions({ build: null });
+        var result = util.convertCordovaOptions({build: null});
 
         expect(result).toEqual({
           platforms: [],
@@ -58,7 +58,7 @@
       });
 
       it('Build type is undefined.', function() {
-        var result = util.convertCordovaOptions({ build: undefined });
+        var result = util.convertCordovaOptions({build: undefined});
 
         expect(result).toEqual({
           platforms: [],
@@ -66,19 +66,19 @@
         });
       });
 
-      [ 'device', 'emulator' ].forEach(function(device) {
+      ['device', 'emulator'].forEach(function(device) {
         it('Device type is "' + device + '".', function() {
-          var result = util.convertCordovaOptions({ device: device });
+          var result = util.convertCordovaOptions({device: device});
 
           expect(result).toEqual({
             platforms: [],
-            options: [ '--' + device ]
+            options: ['--' + device]
           });
         });
       });
 
       it('Device type is empty.', function() {
-        var result = util.convertCordovaOptions({ device: '' });
+        var result = util.convertCordovaOptions({device: ''});
 
         expect(result).toEqual({
           platforms: [],
@@ -87,7 +87,7 @@
       });
 
       it('Device type is null.', function() {
-        var result = util.convertCordovaOptions({ device: null });
+        var result = util.convertCordovaOptions({device: null});
 
         expect(result).toEqual({
           platforms: [],
@@ -96,7 +96,7 @@
       });
 
       it('Device type is undefined.', function() {
-        var result = util.convertCordovaOptions({ device: undefined });
+        var result = util.convertCordovaOptions({device: undefined});
 
         expect(result).toEqual({
           platforms: [],
@@ -105,16 +105,16 @@
       });
 
       it('Target is "AVD1".', function() {
-        var result = util.convertCordovaOptions({ target: 'AVD1' });
+        var result = util.convertCordovaOptions({target: 'AVD1'});
 
         expect(result).toEqual({
           platforms: [],
-          options: [ '--target=AVD1' ]
+          options: ['--target=AVD1']
         });
       });
 
       it('Target is empty.', function() {
-        var result = util.convertCordovaOptions({ target: '' });
+        var result = util.convertCordovaOptions({target: ''});
 
         expect(result).toEqual({
           platforms: [],
@@ -123,7 +123,7 @@
       });
 
       it('Target is null.', function() {
-        var result = util.convertCordovaOptions({ target: null });
+        var result = util.convertCordovaOptions({target: null});
 
         expect(result).toEqual({
           platforms: [],
@@ -132,7 +132,7 @@
       });
 
       it('Target is undefined.', function() {
-        var result = util.convertCordovaOptions({ target: undefined });
+        var result = util.convertCordovaOptions({target: undefined});
 
         expect(result).toEqual({
           platforms: [],
@@ -141,35 +141,35 @@
       });
 
       it('Platform is "android".', function() {
-        var result = util.convertCordovaOptions({ platforms: 'android' });
+        var result = util.convertCordovaOptions({platforms: 'android'});
 
         expect(result).toEqual({
-          platforms: [ 'android' ],
+          platforms: ['android'],
           options: []
         });
       });
 
-      it('Platform is [ "android" ].', function() {
-        var result = util.convertCordovaOptions({ platforms: [ 'android' ]});
+      it('Platform is ["android"].', function() {
+        var result = util.convertCordovaOptions({platforms: ['android']});
 
         expect(result).toEqual({
-          platforms: [ 'android' ],
+          platforms: ['android'],
           options: []
         });
       });
 
-      it('Platform is [ "android", "ios" ].', function() {
-        var platforms = [ 'android', 'ios' ];
-        var result = util.convertCordovaOptions({ platforms: platforms });
+      it('Platform is ["android", "ios"].', function() {
+        var platforms = ['android', 'ios'];
+        var result = util.convertCordovaOptions({platforms: platforms});
 
         expect(result).toEqual({
-          platforms: [ 'android', 'ios' ],
+          platforms: ['android', 'ios'],
           options: []
         });
       });
 
       it('Platform is empty.', function() {
-        var result = util.convertCordovaOptions({ platforms: [] });
+        var result = util.convertCordovaOptions({platforms: []});
 
         expect(result).toEqual({
           platforms: [],
@@ -178,7 +178,7 @@
       });
 
       it('Platforms is null.', function() {
-        var result = util.convertCordovaOptions({ platforms: null });
+        var result = util.convertCordovaOptions({platforms: null});
 
         expect(result).toEqual({
           platforms: [],
@@ -187,7 +187,7 @@
       });
 
       it('Platforms is undefined.', function() {
-        var result = util.convertCordovaOptions({ platforms: undefined });
+        var result = util.convertCordovaOptions({platforms: undefined});
 
         expect(result).toEqual({
           platforms: [],
@@ -205,7 +205,7 @@
         var result = util.convertCordovaOptions(options);
 
         expect(result).toEqual({
-          platforms: [ 'ios' ],
+          platforms: ['ios'],
           options: [
             '--release',
             '--emulator',
@@ -217,13 +217,13 @@
 
     describe('mergeOptions', function() {
       it('Use default user options.', function() {
-        var result = util.mergeOptions({ build: 'default' }, undefined);
+        var result = util.mergeOptions({build: 'default'}, undefined);
 
         expect(result.build).toEqual('default');
       });
 
       it('Use override debug options.', function() {
-        var result = util.mergeOptions({ build: 'default' }, 'debug');
+        var result = util.mergeOptions({build: 'default'}, 'debug');
 
         expect(result.build).toEqual('debug');
       });
@@ -242,13 +242,13 @@
       it('Override debug options.', function() {
         var result = util.mergeOptions({}, 'debug');
 
-        expect(result).toEqual({ build: 'debug', device: 'emulator' });
+        expect(result).toEqual({build: 'debug', device: 'emulator'});
       });
 
       it('Override release options.', function() {
         var result = util.mergeOptions({}, 'release');
 
-        expect(result).toEqual({ build: 'release', device: 'device' });
+        expect(result).toEqual({build: 'release', device: 'device'});
       });
 
       it('Environment options.', function() {
