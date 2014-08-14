@@ -125,14 +125,15 @@ To change release or debug build options.
 // Project configuration.
 grunt.initConfig({
   cordova: {
-    options: { ... },
-    releaseOptions: {
-      build: 'release',
-      device: 'device'
-    },
-    debugOptions: {
-      build: 'debug',
-      device: 'emulator'
+    options: {
+      releaseOptions: {
+        build: 'release',
+        device: 'device'
+      },
+      debugOptions: {
+        build: 'debug',
+        device: 'emulator'
+      }
     }
   }
 });

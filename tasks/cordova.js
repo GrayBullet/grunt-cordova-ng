@@ -35,7 +35,7 @@ module.exports = function(grunt) {
     // overrideOptions['debug']
     //
     // 3. Custom config by build options.
-    // grunt.initConfig(cordova: {debugOptions: {build: 'debug'}});
+    // grunt.initConfig(cordova: {options: {debugOptions: {build: 'debug'}}});
     options = util.mergeOptions(options, build);
 
     grunt.log.debug(JSON.stringify(options));
