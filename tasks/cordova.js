@@ -36,6 +36,12 @@ module.exports = function(grunt) {
     //
     // 3. Custom config by build options.
     // grunt.initConfig(cordova: {options: {debugOptions: {build: 'debug'}}});
+    //
+    // 4. Envrinoment variable config.
+    // export GRUNT_CORDOVA_NG_BUILD=debug
+    var envOptions = util.getEnvironmentOptions();
+    options = require('underscore').extend({}, options, envOptions);
+
     options = util.mergeOptions(options, build);
 
     grunt.log.debug(JSON.stringify(options));

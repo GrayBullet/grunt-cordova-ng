@@ -258,5 +258,109 @@
         });
       });
     });
+
+    describe('getEnvironmentOptions', function() {
+      it('No environment options.', function() {
+        var result = util.getEnvironmentOptions({});
+
+        expect(result).toEqual({});
+      });
+
+      it('Get single platform.', function() {
+        var result = util.getEnvironmentOptions({
+          GRUNT_CORDOVA_NG_PLATFORMS: 'ios'
+        });
+
+        expect(result).toEqual({platforms: ['ios']});
+      });
+
+      it('Get multiple platforms.', function() {
+        var result = util.getEnvironmentOptions({
+          GRUNT_CORDOVA_NG_PLATFORMS: 'ios,android'
+        });
+
+        expect(result).toEqual({platforms: ['ios', 'android']});
+      });
+
+      it('Get multiple platforms include whitespace.', function() {
+        var result = util.getEnvironmentOptions({
+          GRUNT_CORDOVA_NG_PLATFORMS: 'ios, android'
+        });
+
+        expect(result).toEqual({platforms: ['ios', 'android']});
+      });
+
+      it('Platforms is empty.', function() {
+        var result = util.getEnvironmentOptions({
+          GRUNT_CORDOVA_NG_PLATFORMS: ''
+        });
+
+        expect(result).toEqual({platforms: []});
+      });
+
+      it('Get build type.', function() {
+        var result = util.getEnvironmentOptions({
+          GRUNT_CORDOVA_NG_BUILD: 'build1'
+        });
+
+        expect(result).toEqual({build: 'build1'});
+      });
+
+      it('build type is empty.', function() {
+        var result = util.getEnvironmentOptions({
+          GRUNT_CORDOVA_NG_BUILD: ''
+        });
+
+        expect(result).toEqual({build: ''});
+      });
+
+      it('Get device type.', function() {
+        var result = util.getEnvironmentOptions({
+          GRUNT_CORDOVA_NG_DEVICE: 'device1'
+        });
+
+        expect(result).toEqual({device: 'device1'});
+      });
+
+      it('Device type is empty.', function() {
+        var result = util.getEnvironmentOptions({
+          GRUNT_CORDOVA_NG_DEVICE: ''
+        });
+
+        expect(result).toEqual({device: ''});
+      });
+
+      it('Get target.', function() {
+        var result = util.getEnvironmentOptions({
+          GRUNT_CORDOVA_NG_TARGET: 'target1'
+        });
+
+        expect(result).toEqual({target: 'target1'});
+      });
+
+      it('Target is empty.', function() {
+        var result = util.getEnvironmentOptions({
+          GRUNT_CORDOVA_NG_TARGET: ''
+        });
+
+        expect(result).toEqual({target: ''});
+      });
+
+      it('All settings.', function() {
+        var result = util.getEnvironmentOptions({
+          GRUNT_CORDOVA_NG_PLATFORMS: 'ios, android',
+          GRUNT_CORDOVA_NG_BUILD: 'debug',
+          GRUNT_CORDOVA_NG_DEVICE: 'emulator',
+          GRUNT_CORDOVA_NG_TARGET: 'target1'
+        });
+
+        expect(result).toEqual({
+          platforms: ['ios', 'android'],
+          build: 'debug',
+          device: 'emulator',
+          target: 'target1'
+        });
+      });
+    });
   });
 })();
