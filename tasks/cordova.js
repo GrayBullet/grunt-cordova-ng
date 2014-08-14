@@ -40,6 +40,7 @@ module.exports = function(grunt) {
     // 4. Envrinoment variable config.
     // export GRUNT_CORDOVA_NG_BUILD=debug
     var newOptions = util.mergeOptions(options, build);
+    _.extend(newOptions, util.getGruntArgumentsOptions(grunt));
 
     grunt.log.debug(JSON.stringify(newOptions));
 

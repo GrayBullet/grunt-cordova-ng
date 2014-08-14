@@ -374,5 +374,51 @@
         });
       });
     });
+
+    describe('getGruntArgumentsOptions', function() {
+      var grunt = {
+        options: {},
+        option: function(name) {
+          return this.options[name];
+        }
+      };
+
+      it('No argument options.', function() {
+        grunt.options = {};
+        var result = util.getGruntArgumentsOptions(grunt);
+
+        expect(result).toEqual({});
+      });
+
+      it('Get platforms.', function() {
+        grunt.options = {'cordova-platforms': 'android, ios, firefoxos'};
+        var result = util.getGruntArgumentsOptions(grunt);
+
+        expect(result).toEqual({
+          platforms: ['android', 'ios', 'firefoxos']
+        });
+      });
+
+      it('Get build type.', function() {
+        grunt.options = {'cordova-build': 'build 2'};
+        var result = util.getGruntArgumentsOptions(grunt);
+
+        expect(result).toEqual({build: 'build 2'});
+      });
+
+      it('Get device type.', function() {
+        grunt.options = {'cordova-device': 'device a'};
+        var result = util.getGruntArgumentsOptions(grunt);
+
+        expect(result).toEqual({device: 'device a'});
+      });
+
+      it('Get target.', function() {
+        grunt.options = {'cordova-target': 'iPad (Retina)'};
+        var result = util.getGruntArgumentsOptions(grunt);
+
+        expect(result).toEqual({target: 'iPad (Retina)'});
+      });
+    });
   });
 })();
