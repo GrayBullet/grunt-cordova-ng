@@ -93,6 +93,22 @@ grunt cordova:emulate
 | GRUNT_CORDOVA_NG_TARGET    | `iPad` (Cordova Target)                   |
 
 
+### Grunt arguments
+It is possible to override the set in the grunt arguments.
+
+```
+# cordova emulate android --target=avd1
+grunt cordova:emulate --cordova-platforms=android --cordova-target=avd1
+```
+
+| Environment Name    | Value                                     |
+| ------------------- | ----------------------------------------- |
+| --cordova-platforms | `ios,android` (Comma separated platforms) |
+| --cordova-build     | `debug` or `releaase`                     |
+| --cordova-device    | `device` or `emulator`                    |
+| --cordova-target    | `iPad` (Cordova Target)                   |
+
+
 ## Using Example
 
 
