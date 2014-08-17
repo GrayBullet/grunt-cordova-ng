@@ -10,7 +10,17 @@
     "Cordova",
     "grunt"
   ],
-  "author": "Tomo Masakura",
+  "homepage": "https://github.com/masakura/grunt-cordova-ng",
+  "bugs": "https://github.com/masakura/grunt-cordova-ng/issues",
+  "author": {
+    "name": "Tomo Masakura",
+    "email": "tomo.masakura@gmail.com",
+    "url": "http://github.com/masakura"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:masakura/grunt-cordova-ng.git"
+  },
   "license": "MIT",
   "peerDependencies": {
     "cordova": ">=3.0.0",
