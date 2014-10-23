@@ -10,8 +10,8 @@
     "Cordova",
     "grunt"
   ],
-  "homepage": "https://github.com/masakura/grunt-cordova-ng",
-  "bugs": "https://github.com/masakura/grunt-cordova-ng/issues",
+  "homepage": "https://github.com/GrayBullet/grunt-cordova-ng",
+  "bugs": "https://github.com/GrayBullet/grunt-cordova-ng/issues",
   "author": {
     "name": "Tomo Masakura",
     "email": "tomo.masakura@gmail.com",
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:masakura/grunt-cordova-ng.git"
+    "url": "git@github.com:GrayBullet/grunt-cordova-ng.git"
   },
   "license": "MIT",
   "peerDependencies": {
