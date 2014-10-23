@@ -33,5 +33,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('jscheck', ['jshint', 'jscs']);
   grunt.registerTask('test', ['jasmine_node']);
-  grunt.registerTask('default', ['jscheck', 'test']);
+  grunt.registerTask('fulltest', ['jscheck', 'test']);
+  grunt.registerTask('default', ['fulltest']);
 };
