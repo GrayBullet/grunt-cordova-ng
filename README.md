@@ -1,4 +1,4 @@
-# grunt-cordova-ng v0.1.0
+# grunt-cordova-ng v0.1.1
 [Apache Cordova](http://cordova.apache.org/) grunt plugin.
 
 
