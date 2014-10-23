@@ -1,8 +1,26 @@
+var execute = function (command, options, callback) {
+  'use strict';
+
+  var find = require('../lib/find.js');
+  var cordova = require('cordova');
+  var createEnvironment = require('../lib/environment.js').create;
+
+  // Change directory to cordova project.
+  var environment = createEnvironment(options.projectRoot);
+  environment.changeProjectRoot();
+
+  find(command).invoke(cordova, options, function () {
+    // Restore current directory.
+    environment.restoreCurrentDirectory();
+
+    callback();
+  });
+
+};
+
 module.exports = function (grunt) {
   'use strict';
 
-  var cordova = require('cordova');
-  var _ = require('underscore');
   var util = require('../lib/util.js');
 
   var overrideOptions = {
@@ -17,7 +35,7 @@ module.exports = function (grunt) {
   };
 
   grunt.registerTask('cordova', 'Run cordova command.', function (command, build) {
-    var find = require('../lib/find.js');
+    var done = this.async();
 
     var options = this.options({
       platforms: [],
@@ -46,6 +64,6 @@ module.exports = function (grunt) {
 
     grunt.log.debug(JSON.stringify(newOptions));
 
-    find(command).invoke(cordova, newOptions, this.async());
+    execute(command, newOptions, done);
   });
 };
