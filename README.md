@@ -1,4 +1,4 @@
-# grunt-cordova-ng v0.1.1 [![Build Status](https://travis-ci.org/GrayBullet/grunt-cordova-ng.svg?branch=master)](https://travis-ci.org/GrayBullet/grunt-cordova-ng)
+# grunt-cordova-ng v0.1.2 [![Build Status](https://travis-ci.org/GrayBullet/grunt-cordova-ng.svg?branch=master)](https://travis-ci.org/GrayBullet/grunt-cordova-ng)
 [Apache Cordova](http://cordova.apache.org/) grunt plugin.
 
 
