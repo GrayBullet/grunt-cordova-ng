@@ -1,6 +1,12 @@
 (function() {
   'use strict';
 
+  // Clean environment variables.
+  delete process.env.GRUNT_CORDOVA_NG_PLATFORMS;
+  delete process.env.GRUNT_CORDOVA_NG_BUILD;
+  delete process.env.GRUNT_CORDOVA_NG_DEVICE;
+  delete process.env.GRUNT_CORDOVA_NG_TARGET;
+
   var util = require('../../lib/util.js');
 
   describe('util', function() {
