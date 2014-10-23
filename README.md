@@ -35,6 +35,13 @@ Task targets, files and options may be specified according to the Grunt [Configu
 ### Options
 
 
+#### projectRoot
+Type: `String`
+Default: empty
+
+Cordova project root path.
+
+
 #### platforms
 Type: `Array` 'String'
 Default: empty array
