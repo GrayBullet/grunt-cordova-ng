@@ -1,21 +1,22 @@
 module.exports = function (grunt) {
   'use strict';
 
+  var config = {
+    javascripts: [
+      'Gruntfile.js',
+      'lib/**/*.js',
+      'tasks/**/*.js',
+      'test/**/*.js'
+    ]
+  };
+
   grunt.initConfig({
     jshint: {
-      all: [
-        'Gruntfile.js',
-        'tasks/**/*.js',
-        'test/**/*.js'
-      ]
+      all: config.javascripts
     },
 
     jscs: {
-      all: [
-        'Gruntfile.js',
-        'tasks/**/*.js',
-        'test/**/*.js'
-      ]
+      all: config.javascripts
     },
 
     'jasmine_node': {
