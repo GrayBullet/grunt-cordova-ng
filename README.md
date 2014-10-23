@@ -43,7 +43,7 @@ Cordova project root path.
 
 
 #### platforms
-Type: `Array` 'String'
+Type: `Array` `String`
 Default: empty array
 
 Building with cordova platforms.
