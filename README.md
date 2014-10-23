@@ -25,6 +25,7 @@ Task targets, files and options may be specified according to the Grunt [Configu
 
 | Task            | Action                         |
 | --------------- | ------------------------------ |
+| cordova:prepare | Run `cordova prepare` command. |
 | cordova:build   | Run `cordova build` command.   |
 | cordova:emulate | Run `cordova emulate` command. |
 | cordova:run     | Run `cordova run` command.     |
