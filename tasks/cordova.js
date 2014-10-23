@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
   'use strict';
 
   var cordova = require('cordova');
@@ -16,7 +16,7 @@ module.exports = function(grunt) {
     }
   };
 
-  grunt.registerTask('cordova', 'Run cordova command.', function(command, build) {
+  grunt.registerTask('cordova', 'Run cordova command.', function (command, build) {
     var find = require('../lib/find.js');
 
     var options = this.options({

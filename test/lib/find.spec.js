@@ -1,11 +1,11 @@
-(function() {
+(function () {
   'use strict';
 
   var find = require('../../lib/find.js');
 
-  describe('find', function() {
-    [ 'build', 'run', 'emulate' ].forEach(function(name) {
-      it('find "' + name + '".', function() {
+  describe('find', function () {
+    ['build', 'run', 'emulate'].forEach(function (name) {
+      it('find "' + name + '".', function () {
         var result = find(name);
 
         expect(result).toBeDefined();

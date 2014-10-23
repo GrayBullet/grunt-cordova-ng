@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
   'use strict';
 
   grunt.initConfig({
@@ -10,9 +10,17 @@ module.exports = function(grunt) {
       ]
     },
 
-    jasmine_node: {
+    jscs: {
       all: [
-        'test/',
+        'Gruntfile.js',
+        'tasks/**/*.js',
+        'test/**/*.js'
+      ]
+    },
+
+    'jasmine_node': {
+      all: [
+        'test/'
       ]
     }
   });
@@ -20,7 +28,9 @@ module.exports = function(grunt) {
   // Load grunt tasks.
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-jasmine-node');
+  grunt.loadNpmTasks('grunt-jscs');
 
+  grunt.registerTask('jscheck', ['jshint', 'jscs']);
   grunt.registerTask('test', ['jasmine_node']);
-  grunt.registerTask('default', ['jshint', 'test']);
+  grunt.registerTask('default', ['jscheck', 'test']);
 };
