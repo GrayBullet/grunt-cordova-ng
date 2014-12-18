@@ -1,4 +1,4 @@
-# grunt-cordova-ng v0.1.3 [![Build Status](https://travis-ci.org/GrayBullet/grunt-cordova-ng.svg?branch=master)](https://travis-ci.org/GrayBullet/grunt-cordova-ng)
+# grunt-cordova-ng v0.1.4 [![Build Status](https://travis-ci.org/GrayBullet/grunt-cordova-ng.svg?branch=master)](https://travis-ci.org/GrayBullet/grunt-cordova-ng)
 [Apache Cordova](http://cordova.apache.org/) grunt plugin.
 
 
@@ -23,13 +23,53 @@ _Run this task with the `grunt cordova` command._
 
 Task targets, files and options may be specified according to the Grunt [Configuring tasks](http://gruntjs.com/configuring-tasks) guide.
 
-| Task            | Action                         |
-| --------------- | ------------------------------ |
-| cordova:prepare | Run `cordova prepare` command. |
-| cordova:compile | Run `cordova compile` command. |
-| cordova:build   | Run `cordova build` command.   |
-| cordova:emulate | Run `cordova emulate` command. |
-| cordova:run     | Run `cordova run` command.     |
+| Task             | Action                          |
+| ---------------- | ------------------------------- |
+| cordova:prepare  | Run `cordova prepare` command.  |
+| cordova:compile  | Run `cordova compile` command.  |
+| cordova:build    | Run `cordova build` command.    |
+| cordova:emulate  | Run `cordova emulate` command.  |
+| cordova:run      | Run `cordova run` command.      |
+| cordova:platform | Run `cordova platform' command. |
+| cordova:plugin   | Run `cordova plugin` command.   |
+
+
+### Cordova Platform Task
+_Run this task with the `grunt cordova:platform` command._
+
+```
+# list cordova platforms.
+grunt cordova:platform:list
+
+# add cordova platform.
+grunt cordova:platform:add:android
+
+# remove cordova platform.
+grunt cordova:platform:remove:android
+
+# update cordova platform.
+grunt cordova:platform:update:android
+
+# check cordova platforms.
+grunt cordova:platform:check
+```
+
+### Cordova Plugin Task
+_Run this task with the `grunt cordova:plugin` command._
+
+```
+# list installed plugins.
+grunt cordova:plugin:list
+
+# search plugins.
+grunt cordova:plugin:search:console
+
+# add cordova plugin.
+grunt cordova:plugin:add:org.apache.cordova.console
+
+# remove cordova plugin.
+grunt cordova:plugin:remove:org.apache.cordova.console
+```
 
 
 ### Options
