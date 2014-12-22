@@ -25,17 +25,6 @@ module.exports = function (grunt) {
 
   var util = require('../lib/util.js');
 
-  var overrideOptions = {
-    debug: {
-      build: 'debug',
-      device: 'emulater'
-    },
-    release: {
-      build: 'release',
-      device: 'device'
-    }
-  };
-
   grunt.registerTask('cordova', 'Run cordova command.', function (command, build) {
     // Show run cordova results.
     cordova.on('results', function (results) {
