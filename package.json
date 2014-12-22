@@ -37,6 +37,8 @@
     "tasks"
   ],
   "dependencies": {
+    "fs-extra": "^0.13.0",
+    "glob": "^4.3.2",
     "underscore": "^1.6.0"
   }
 }
