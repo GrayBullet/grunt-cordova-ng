@@ -30,7 +30,7 @@ Task targets, files and options may be specified according to the Grunt [Configu
 | cordova:build    | Run `cordova build` command.    |
 | cordova:emulate  | Run `cordova emulate` command.  |
 | cordova:run      | Run `cordova run` command.      |
-| cordova:platform | Run `cordova platform' command. |
+| cordova:platform | Run `cordova platform` command. |
 | cordova:plugin   | Run `cordova plugin` command.   |
 
 
