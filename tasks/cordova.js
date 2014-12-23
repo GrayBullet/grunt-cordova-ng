@@ -80,13 +80,14 @@ module.exports = function (grunt) {
     // grunt cordova:build --cordova-build=debug
     var newOptions = util.mergeOptions(options, build, grunt);
 
+    var done = this.async();
+
     grunt.log.debug(JSON.stringify(newOptions));
 
     if (command === 'package-files') {
       var packageFiles = (require('../lib/findPackage'))(newOptions);
-      packageFiles(grunt, newOptions);
+      packageFiles(grunt, newOptions, done);
     } else {
-      var done = this.async();
 
       execute(command, newOptions, function (error) {
         if (error) {
