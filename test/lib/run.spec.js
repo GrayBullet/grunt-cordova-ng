@@ -17,7 +17,7 @@
         build: 'debug',
         target: 'NEXUS7'
       };
-      command.invoke(mock, options, asyncStub);
+      command.invoke(mock, undefined, options, asyncStub);
 
       var convertedOptions = {
         platforms: ['android'],

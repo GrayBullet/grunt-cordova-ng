@@ -1,5 +1,5 @@
 var _ = require('underscore');
-var cordova = require('cordova');
+var cordovaExtra = require('../lib/cordovaExtra.js');
 
 var getTaskName = function (task, command) {
   'use strict';
@@ -12,23 +12,16 @@ var getTaskName = function (task, command) {
   return array.join(':');
 };
 
-var execute = function (command, options, callback) {
+var execute = function (command, grunt, options, callback) {
   'use strict';
 
   var find = require('../lib/find.js');
-  var createEnvironment = require('../lib/environment.js').create;
+  // Get cordova wrapper with running 'projectRoot'.
+  var cordova = cordovaExtra.create(options.projectRoot);
 
-  // Change directory to cordova project.
-  var environment = createEnvironment(options.projectRoot);
-  environment.changeProjectRoot();
-
-  find(command).invoke(cordova, options, function () {
-    // Restore current directory.
-    environment.restoreCurrentDirectory();
-
+  find(command).invoke(cordova, grunt, options, function () {
     callback.apply(null, arguments);
   });
-
 };
 
 module.exports = function (grunt) {
@@ -47,7 +40,7 @@ module.exports = function (grunt) {
     }
 
     // Show run cordova results.
-    cordova.on('results', function (results) {
+    require('cordova').on('results', function (results) {
       grunt.log.writeln(results);
     });
 
@@ -84,17 +77,11 @@ module.exports = function (grunt) {
 
     grunt.log.debug(JSON.stringify(newOptions));
 
-    if (command === 'package-files') {
-      var packageFiles = (require('../lib/findPackage'))(newOptions);
-      packageFiles(grunt, newOptions, done);
-    } else {
-
-      execute(command, newOptions, function (error) {
-        if (error) {
-          grunt.fail.warn(error);
-        }
-        done();
-      });
-    }
+    execute(command, grunt, newOptions, function (error) {
+      if (error) {
+        grunt.fail.warn(error);
+      }
+      done();
+    });
   });
 };

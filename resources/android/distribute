@@ -1,0 +1,12 @@
+#!/bin/sh
+
+KEYSTORE=~/.keystore
+KEYALIAS=app
+WORK_DIR=`dirname $0`
+CONFIG=${WORK_DIR}/config
+
+if [ -f $CONFIG ]; then
+  . $CONFIG
+fi
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore my_application.apk alias_name

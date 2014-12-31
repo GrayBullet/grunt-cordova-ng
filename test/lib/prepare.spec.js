@@ -17,7 +17,7 @@
         build: 'release',
         device: 'emulator'
       };
-      command.invoke(mock, options, asyncStub);
+      command.invoke(mock, undefined, options, asyncStub);
 
       var convertedOptions = {
         platforms: ['ios'],

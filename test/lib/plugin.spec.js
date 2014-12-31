@@ -16,7 +16,7 @@
         arguments: ['add', 'plugin1', 'plugin2']
       };
 
-      command.invoke(mock, options, asyncStub);
+      command.invoke(mock, undefined, options, asyncStub);
 
       expect(mock.plugin)
         .toHaveBeenCalledWith('add', ['plugin1', 'plugin2'], options, asyncStub);

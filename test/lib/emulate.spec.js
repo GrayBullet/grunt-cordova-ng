@@ -18,7 +18,7 @@
         device: 'emulator',
         target: 'iPhone'
       };
-      command.invoke(mock, options, asyncStub);
+      command.invoke(mock, undefined, options, asyncStub);
 
       var convertedOptions = {
         platforms: ['ios'],

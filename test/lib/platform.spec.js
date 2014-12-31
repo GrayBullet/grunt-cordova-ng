@@ -16,7 +16,7 @@
         arguments: ['add', 'platform1', 'platform2']
       };
 
-      command.invoke(mock, options, asyncStub);
+      command.invoke(mock, undefined, options, asyncStub);
 
       expect(mock.platform)
         .toHaveBeenCalledWith('add', ['platform1', 'platform2'], options, asyncStub);
