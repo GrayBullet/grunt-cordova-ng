@@ -23,15 +23,23 @@ _Run this task with the `grunt cordova` command._
 
 Task targets, files and options may be specified according to the Grunt [Configuring tasks](http://gruntjs.com/configuring-tasks) guide.
 
-| Task             | Action                          |
-| ---------------- | ------------------------------- |
-| cordova:prepare  | Run `cordova prepare` command.  |
-| cordova:compile  | Run `cordova compile` command.  |
-| cordova:build    | Run `cordova build` command.    |
-| cordova:emulate  | Run `cordova emulate` command.  |
-| cordova:run      | Run `cordova run` command.      |
-| cordova:platform | Run `cordova platform` command. |
-| cordova:plugin   | Run `cordova plugin` command.   |
+| Task                  | Action                                                       |
+| --------------------- | ------------------------------------------------------------ |
+| cordova:prepare       | Run `cordova prepare` command.                               |
+| cordova:compile       | Run `cordova compile` command.                               |
+| cordova:build         | Run `cordova build` command.                                 |
+| cordova:package-files | Copy apk and app to dist directory.                          |
+| cordova:package       | Run `cordova build` command and `cordova:package-files task` |
+| cordova:emulate       | Run `cordova emulate` command.                               |
+| cordova:run           | Run `cordova run` command.                                   |
+| cordova:platform      | Run `cordova platform` command.                              |
+| cordova:plugin        | Run `cordova plugin` command.                                |
+
+
+### Package files Task
+_Run this task with the `grunt cordova:package-files` or `grunt cordova:package` command._
+
+Copy *.apk or *.app to `dist` directory, if run `cordova:package-files` or `cordova:package` task.
 
 
 ### Cordova Platform Task
