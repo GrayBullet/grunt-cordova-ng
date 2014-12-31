@@ -41,6 +41,37 @@ _Run this task with the `grunt cordova:package-files` or `grunt cordova:package`
 
 Copy *.apk or *.app to `dist` directory, if run `cordova:package-files` or `cordova:package` task.
 
+```
+grunt cordova:package
+Running "cordova:package" (cordova) task
+
+Running "cordova:build" (cordova) task
+...
+
+Running "cordova:package-files" (cordova) task
+Copy to dist/android/CordovaApp-debug-unaligned.apk.
+Copy to dist/android/CordovaApp-debug.apk.
+Copy to dist/ios/emulator/HelloCordova.app.
+
+Done, without errors.
+...
+```
+
+When iOS device build, ipa file is created.
+
+```
+grunt cordova:package --cordova-platforms=ios --cordova-device=device
+Running "cordova:package" (cordova) task
+
+Running "cordova:build" (cordova) task
+...
+
+Running "cordova:package-files" (cordova) task
+Copy to dist/ios/device/HelloCordova.ipa.
+
+Done, without errors.
+```
+
 
 ### Cordova Platform Task
 _Run this task with the `grunt cordova:platform` command._
