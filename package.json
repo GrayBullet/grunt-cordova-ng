@@ -34,7 +34,8 @@
   },
   "files": [
     "lib",
-    "tasks"
+    "tasks",
+    "resources"
   ],
   "dependencies": {
     "fs-extra": "^0.13.0",
