@@ -5,7 +5,10 @@ WORK_DIR=`dirname $0`
 KEYSTORE=~/app.keystore
 KEYALIAS=app
 CONFIG=${WORK_DIR}/config
-ZIPALIGN=${ANDROID_HOME}/build-tools/20.0.0/zipalign
+
+for file in ${ANDROID_HOME}/build-tools/*/zipalign; do
+  ZIPALIGN=${file}
+done
 
 if [ -f $CONFIG ]; then
   . $CONFIG
