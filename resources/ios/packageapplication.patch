@@ -1,0 +1,14 @@
+--- PackageApplication	2015-01-01 15:27:34.000000000 +0900
++++ PackageApplication_BugFixed	2015-01-01 15:27:34.000000000 +0900
+@@ -152,9 +152,8 @@
+         }
+     }
+ 
+-    my @codesign_args = ("/usr/bin/codesign", "--force", "--preserve-metadata=identifier,entitlements,resource-rules",
+-                         "--sign", $opt{sign},
+-                         "--resource-rules=$destApp/ResourceRules.plist");
++    my @codesign_args = ("/usr/bin/codesign", "--force", "--preserve-metadata=identifier,entitlements",
++                         "--sign", $opt{sign});
+ 
+     if ( -e $entitlements_plist ) {
+         push(@codesign_args, '--entitlements');
