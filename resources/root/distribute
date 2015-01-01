@@ -1,0 +1,10 @@
+#!/bin/sh
+
+DIST_DIR=`dirname $0`
+
+for distribute in ${DIST_DIR}/*/distribute; do
+  if [ -x "${distribute}" ]; then 
+    ${distribute}
+  fi
+done
+
