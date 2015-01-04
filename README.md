@@ -112,6 +112,57 @@ Verification succesful
 `dist/android/CordovaApp-release.apk` is created.
 
 
+##### iOS
+Modify cordova iOS platform `platforms/ios/cordova/build-release.xcconfig`. Comment `CODE_SIGN_*`.
+
+```
+...
+
+//
+// XCode Build settings for "Release" Build Configuration.
+//
+
+#include "build.xcconfig"
+
+//CODE_SIGN_IDENTITY = iPhone Distribution
+//CODE_SIGN_IDENTITY[sdk=iphoneos*] = iPhone Distribution
+```
+
+Download distribution provisioning profile from [Member Center Provisioning Profiles](https://developer.apple.com/account/ios/profile/profileList.action?type=production). And copy to `./resources/mobileprovisions/release.mobileprovision`.
+
+```
+mkdir -p ./resources/mobileprovisions
+cp ~/Download/distribution.mobileprovision ./resources/mobileprovisions/release.mobileprovision
+```
+
+Run `cordova:package` task.
+
+```
+grunt cordova:package --cordova-platforms=ios --cordova-build=release --cordova-device=device
+```
+
+Run post sign script.
+
+```
+./dist/ios/distribute
+
+...
+
+Results at '/path/to/project/dist/ios/HelloCordova.ipa'
+```
+
+`dist/ios/HelloCordova.ipa` is created.
+
+If you want to use the other provisioning profiles, you can use the "--mobileprovision" argument.
+
+```
+cp ~/Download/adhoc.mobileprovision ./resources/mobileprovisions/adhoc.mobileprovision
+grunt cordova:package --cordova-platforms=ios --cordova-build=release --cordova-device=device
+
+./dist/ios/distribute --mobileprovision=adhoc
+```
+
+
 ### Cordova Platform Task
 _Run this task with the `grunt cordova:platform` command._
 
