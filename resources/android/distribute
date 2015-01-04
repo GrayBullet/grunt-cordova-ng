@@ -5,7 +5,10 @@ WORK_DIR=`dirname $0`
 KEYSTORE=~/app.keystore
 KEYALIAS=app
 CONFIG=${WORK_DIR}/config
-ZIPALIGN=${ANDROID_HOME}/build-tools/20.0.0/zipalign
+
+for file in ${ANDROID_HOME}/build-tools/*/zipalign; do
+  ZIPALIGN=${file}
+done
 
 if [ -f $CONFIG ]; then
   . $CONFIG
@@ -16,7 +19,5 @@ for apk in ${WORK_DIR}/*-release-unsigned.apk; do
   PACKAGE=`echo "$apk" | sed 's/release-unsigned\.apk$/release.apk/;'`
 
   cp $apk $UNALIGNED
-  jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore $KEYSTORE $UNALIGNED $KEYALIAS
-  rm $PACKAGE
-  $ZIPALIGN -v 4 $UNALIGNED $PACKAGE
+  jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore $KEYSTORE $UNALIGNED $KEYALIAS && rm -f $PACKAGE && $ZIPALIGN -v 4 $UNALIGNED $PACKAGE
 done

@@ -1,10 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 
-WORK_DIR=`dirname $0`
+DIST_DIR=`dirname $0`
 
-for script in ${WORK_DIR}/*/distribute; do
-echo $script
-  if [ -x $script ]; then
-    $script
+for distribute in ${DIST_DIR}/*/distribute; do
+  if [ -x "${distribute}" ]; then
+    ${distribute}
   fi
 done

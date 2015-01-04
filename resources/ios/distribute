@@ -1,0 +1,52 @@
+#!/bin/bash
+
+WORK_DIR=$(cd $(dirname $0) && pwd)
+
+CODE_SIGN_IDENTITY="iPhone Distribution"
+MOBILEPROVISION="release"
+CONFIG=${WORK_DIR}/config
+
+TOOL=PackageApplication
+TOOL_BUGFIX=true
+
+if [ -f "${CONFIG}" ]; then
+  . "${CONFIG}"
+fi
+
+# Bug Xcode 6.1 xcrun.
+# Xcode 6.1 not supported "resource-rules".
+# http://stackoverflow.com/questions/26497863/xcode-6-1-error-while-building-ipa-using-testflight-app
+TOOL_PATH=`xcrun --sdk iphoneos --find "${TOOL}"`
+SHASUM=`shasum "${TOOL_PATH}" | sed 's/ .*$//;'`
+if [ -n "${TOOL_BUGFIX}" -a "${SHASUM}" = "3546dc87a83983a56cbac216c15225f2f844a1de" ]; then
+  BIN_DIR=${WORK_DIR}/bin
+  TOOL=PackageApplication_BugFixed
+  PATH=${BIN_DIR}:${PATH}
+  mkdir -p "${BIN_DIR}"
+  patch "${TOOL_PATH}" "${WORK_DIR}/packageapplication.patch" -o "${BIN_DIR}/${TOOL}"
+  chmod +x "${BIN_DIR}/${TOOL}"
+fi
+
+while [[ $# -gt 0 ]]; do
+  if [ `echo "$1" | sed 's/=.*$//;'` = "--mobileprovision" ]; then
+    MOBILEPROVISION=`echo "$1" | sed 's/^--mobileprovision=//;'`
+  else
+    echo "Unrecognized flag: $1"; exit 2
+  fi
+  shift
+done
+
+TMP_DIR=${WORK_DIR}/tmp_$$
+APP_NAME=`basename ${WORK_DIR}/device/*.ipa | sed 's/\.ipa$//;'`
+IPA="${APP_NAME}".ipa
+IPA_PATH=${WORK_DIR}/${IPA}
+ORIGINAL_IPA_PATH=${WORK_DIR}/device/${IPA}
+APP="${APP_NAME}".app
+APP_PATH=${TMP_DIR}/Payload/${APP}
+
+unzip "${ORIGINAL_IPA_PATH}" -d "${TMP_DIR}" > /dev/null
+
+xcrun -sdk iphoneos "${TOOL}" -v "${APP_PATH}" -o "${IPA_PATH}" -sign "${CODE_SIGN_IDENTITY}" -embed "${WORK_DIR}/mobileprovisions/${MOBILEPROVISION}.mobileprovision"
+
+rm -rf "${TMP_DIR}"
+
