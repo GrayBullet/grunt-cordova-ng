@@ -95,7 +95,7 @@ KEYALIAS=HelloCordova
 Run `cordova:package` task.
 
 ```
-grunt cordova:package --cordova-platforms=android --cordova-release=release
+grunt cordova:package --cordova-platforms=android --cordova-build=release
 ```
 
 Run post sign script.
