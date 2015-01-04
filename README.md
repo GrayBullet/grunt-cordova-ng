@@ -36,7 +36,7 @@ Task targets, files and options may be specified according to the Grunt [Configu
 | cordova:plugin        | Run `cordova plugin` command.                                |
 
 
-### Package files Task
+### Package files Task (Android and iOS only)
 _Run this task with the `grunt cordova:package-files` or `grunt cordova:package` command._
 
 Copy *.apk or *.app to `dist` directory, if run `cordova:package-files` or `cordova:package` task.
@@ -71,6 +71,45 @@ Copy to dist/ios/device/HelloCordova.ipa.
 
 Done, without errors.
 ```
+
+
+#### Post sign script
+If you run `cordova:package` and `cordova:package-files` task, post sign script generated.
+
+
+##### Android
+Generate a private key.
+
+```
+keytool -genkey -v -keystore ~/HelloCordova.keystore -alias HelloCordova -keyalg RSA -keysize 2048 -validity 10000
+chmod 600 ~/HelloCordova.keystore
+```
+
+Create a config file. (./resources/android/config)
+
+```
+KEYSTORE=~/HelloCordova.keystore
+KEYALIAS=HelloCordova
+```
+
+Run `cordova:package` task.
+
+```
+grunt cordova:package --cordova-platforms=android --cordova-release=release
+```
+
+Run post sign script.
+
+```
+./dist/android/distribute
+Enter Passphrase for keystore: ******
+
+...
+
+Verification succesful
+```
+
+`dist/android/CordovaApp-release.apk` is created.
 
 
 ### Cordova Platform Task
