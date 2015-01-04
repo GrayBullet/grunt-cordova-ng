@@ -1,0 +1,10 @@
+#!/bin/bash
+
+WORK_DIR=`dirname $0`
+
+for script in ${WORK_DIR}/*/distribute; do
+echo $script
+  if [ -x $script ]; then
+    $script
+  fi
+done
