@@ -36,7 +36,7 @@ Task targets, files and options may be specified according to the Grunt [Configu
 | cordova:plugin        | Run `cordova plugin` command.                                |
 
 
-### Package files Task (Android and iOS only)
+### Package files Task (Android and iOS and Firefox OS only)
 _Run this task with the `grunt cordova:package-files` or `grunt cordova:package` command._
 
 Copy *.apk or *.app to `dist` directory, if run `cordova:package-files` or `cordova:package` task.
@@ -68,6 +68,23 @@ Running "cordova:build" (cordova) task
 
 Running "cordova:package-files" (cordova) task
 Copy to dist/ios/device/HelloCordova.ipa.
+
+Done, without errors.
+```
+
+When Firefox OS, package.zip and www file is created.
+
+```
+grunt cordova:package
+Running "cordova:package" (cordova) task
+
+Running "cordova:build" (cordova) task
+Cleaning Firefoxos project
+Firefox OS packaged app built in platforms/firefoxos/build/package.zip
+
+Running "cordova:package-files" (cordova) task
+Copy to dist/firefoxos/package.zip.
+Copy to dist/firefoxos/www.
 
 Done, without errors.
 ```
