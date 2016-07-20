@@ -81,7 +81,10 @@ module.exports = function (grunt) {
       if (error) {
         grunt.fail.warn(error);
       }
-      done();
+
+      // Adhoc bugfix:
+      //   Do not run ios-simulator at `cordova emulate`
+      setTimeout(done, 50);
     });
   });
 };
