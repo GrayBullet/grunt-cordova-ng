@@ -11,15 +11,11 @@ module.exports = function (grunt) {
   };
 
   grunt.initConfig({
-    jshint: {
-      all: config.javascripts
+    eslint: {
+      target: config.javascripts
     },
 
-    jscs: {
-      all: config.javascripts
-    },
-
-    'jasmine_node': {
+    jasmine_node: { // eslint-disable-line camelcase
       all: [
         'test/'
       ]
@@ -27,11 +23,10 @@ module.exports = function (grunt) {
   });
 
   // Load grunt tasks.
-  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-jasmine-node');
-  grunt.loadNpmTasks('grunt-jscs');
+  grunt.loadNpmTasks('grunt-eslint');
 
-  grunt.registerTask('jscheck', ['jshint', 'jscs']);
+  grunt.registerTask('jscheck', ['eslint']);
   grunt.registerTask('test', ['jasmine_node']);
   grunt.registerTask('fulltest', ['jscheck', 'test']);
   grunt.registerTask('default', ['fulltest']);
