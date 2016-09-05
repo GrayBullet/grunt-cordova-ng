@@ -1,6 +1,6 @@
 {
   "name": "grunt-cordova-ng",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Apache Cordova grunt plugin.",
   "main": "index.js",
   "scripts": {
