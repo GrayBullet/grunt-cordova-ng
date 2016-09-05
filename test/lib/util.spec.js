@@ -248,13 +248,13 @@
       it('Override debug options.', function () {
         var result = util.mergeOptions({}, 'debug');
 
-        expect(result).toEqual({build: 'debug', device: 'emulator'});
+        expect(result).toEqual({projectRoot: '', build: 'debug', device: 'emulator'});
       });
 
       it('Override release options.', function () {
         var result = util.mergeOptions({}, 'release');
 
-        expect(result).toEqual({build: 'release', device: 'device'});
+        expect(result).toEqual({projectRoot: '', build: 'release', device: 'device'});
       });
 
       it('Environment options.', function () {
@@ -263,6 +263,7 @@
         });
 
         expect(result).toEqual({
+          projectRoot: '',
           platforms: ['ios'],
           build: 'release',
           device: 'device'
@@ -280,6 +281,7 @@
         });
 
         expect(result).toEqual({
+          projectRoot: '',
           build: 'build:grunt',
           device: 'device:grunt',
           target: 'target:environment'
@@ -300,11 +302,18 @@
         delete result.debugOptions;
 
         expect(result).toEqual({
+          projectRoot: '',
           build: 'debug',
           device: 'debug device',
           option1: 'default option1',
           option2: 'debug option2'
         });
+      });
+
+      it('Default project root.', function () {
+        var result = util.mergeOptions({});
+
+        expect(result.projectRoot).toEqual('');
       });
     });
 
