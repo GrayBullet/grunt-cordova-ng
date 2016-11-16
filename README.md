@@ -315,7 +315,7 @@ In this example, running `cordova build android --release`.
 grunt.initConfig({
   cordova: {
     options: {
-      platforms: 'android',
+      platforms: ['android'],
         build: 'release'
     }
   }
